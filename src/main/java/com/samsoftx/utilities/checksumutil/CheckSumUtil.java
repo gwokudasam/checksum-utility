@@ -2,6 +2,7 @@ package com.samsoftx.utilities.checksumutil;
 
 
 import com.samsoftx.utilities.checksumutil.exception.CheckSumGenerationException;
+import lombok.extern.log4j.Log4j2;
 import org.apache.tomcat.util.codec.binary.Base64;
 
 import java.io.FileInputStream;
@@ -16,7 +17,6 @@ import java.security.SignatureException;
 import java.security.UnrecoverableEntryException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-import java.util.logging.Logger;
 
 /**
  * Checksum generator utility class
@@ -34,8 +34,6 @@ import java.util.logging.Logger;
 
 public final class CheckSumUtil {
 
-    private static final Logger LOG = Logger.getLogger(CheckSumUtil.class.getCanonicalName());
-
     /**
      * Private constructor to prevent instantiation
      */
@@ -46,21 +44,22 @@ public final class CheckSumUtil {
      * Helper method to generate a checksum which will be populated in the checksum parameter
      * to verify the integrity of the data
      *
-     * @param alias                         The alias.
-     * @param keyStoreLocation              The location of the keystore.
-     * @param keystorePassArr               The keystore password as a char array, char array is preferred over string
-     * @see <a href="https://stackoverflow.com/questions/8881291/why-is-char-preferred-over-string-for-passwords"></a>
-     * @param keyStoreType                  Keystore Type.
-     * @param saltValue                     The salt value.
-     * @throws IOException                  Input Output Exception when the file is not found.
-     * @throws KeyStoreException            KeyStoreException.
-     * @throws CertificateException         Indicates one of a variety of certificate problems.
-     * @throws InvalidKeyException          For invalid Keys (invalid encoding, wrong length, uninitialized, etc).
-     * @throws NoSuchAlgorithmException     Thrown when a particular cryptographic algorithm is requested.
-     *                                      but is not available in the environment.
-     * @throws SignatureException           Signature exception.
-     * @throws UnrecoverableEntryException  This exception is thrown if an entry in the keystore cannot be recovered.
+     * @param alias            The alias.
+     * @param keyStoreLocation The location of the keystore.
+     * @param keystorePassArr  The keystore password as a char array, char array is preferred over string,
+     *                         @see <a href="https://stackoverflow.com/questions/8881291/why-is-char-preferred-over-string-for-passwords"></a>
+     * @param keyStoreType     Keystore Type.
+     * @param saltValue        The salt value.
      * @return The checksum as a String
+     * @throws IOException                 Input Output Exception when the file is not found.
+     * @throws KeyStoreException           KeyStoreException.
+     * @throws CertificateException        Indicates one of a variety of certificate problems.
+     * @throws InvalidKeyException         For invalid Keys (invalid encoding, wrong length, uninitialized, etc).
+     * @throws NoSuchAlgorithmException    Thrown when a particular cryptographic algorithm is requested.
+     *                                     but is not available in the environment.
+     * @throws SignatureException          Signature exception.
+     * @throws UnrecoverableEntryException This exception is thrown if an entry in the keystore cannot be recovered.
+     *
      */
 
     public static String generateChecksum(

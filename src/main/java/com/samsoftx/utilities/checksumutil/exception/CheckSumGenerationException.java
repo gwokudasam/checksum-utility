@@ -9,7 +9,7 @@ package com.samsoftx.utilities.checksumutil.exception;
  * @since v1.0.0 codename Chamakuvangu
  */
 
-public class CheckSumGenerationException extends RuntimeException{
+public class CheckSumGenerationException extends RuntimeException {
 
     private static final long serialVersionUID = 8247610319171014183L;
 

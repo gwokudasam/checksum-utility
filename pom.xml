@@ -8,7 +8,7 @@
     <artifactId>hmac-checksum-util</artifactId>
     <version>1.0.2-SNAPSHOT</version>
 
-
+    <!-- Start - Checksum Utility Project Owner -->
     <developers>
         <developer>
             <id>samsoftx</id>
@@ -21,36 +21,64 @@
                 <role>Enterprise Architect</role>
                 <role>Lead Developer</role>
             </roles>
-            <url></url>
         </developer>
     </developers>
+    <!-- End - Checksum Utility Project Owner -->
+    <!-- Start - Checksum Utility source repository -->
+    <scm>
+        <connection>https://github.com/gwokudasam/checksum-utility.git</connection>
+        <developerConnection>git@github.com:gwokudasam/checksum-utility.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+    <!-- End - Checksum Utility source repository -->
+    <!-- Start - Checksum Utility issue management -->
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/gwokudasam/checksum-utility.git/issues</url>
+    </issueManagement>
+    <!-- End - Checksum Utility issue management -->
+
+    <properties>
+        <maven.install.skip>true</maven.install.skip>
+        <maven.deploy.skip>true</maven.deploy.skip>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <lombok.version>1.18.8</lombok.version>
+        <sl4j-api.version>1.7.29</sl4j-api.version>
+        <tomcat-embed-core.version>9.0.35</tomcat-embed-core.version>
+        <junit.version>5.7.0</junit.version>
+        <junit5.vintage.version>5.5.2</junit5.vintage.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-core</artifactId>
-            <version>9.0.35</version>
+            <version>${tomcat-embed-core.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.29</version>
+            <version>${sl4j-api.version}</version>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.8</version>
+            <version>${lombok.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <version>${junit5.vintage.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
-    <properties>
-        <java.version>1.8</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
-    </properties>
 
 </project>
